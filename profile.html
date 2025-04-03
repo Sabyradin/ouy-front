@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль | Qazaq EcoMarket</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <header>
+        <h1>Профиль</h1>
+    </header>
+
+    <main class="profile-container">
+        <div class="profile-card">
+            <img id="profile-img" src="default-avatar.png" alt="Профиль суреті">
+            <h2 id="user-name">Аты-жөні</h2>
+            <p id="user-email">email@example.com</p>
+
+            <button id="edit-profile">Өзгерту</button>
+            <button id="logout">Шығу</button>
+        </div>
+
+        <div class="edit-form" id="edit-form">
+            <h2>Профильді өзгерту</h2>
+            <label>Аты-жөні:</label>
+            <input type="text" id="edit-name">
+            <label>Электрондық пошта:</label>
+            <input type="email" id="edit-email">
+            <label>Профиль суреті:</label>
+            <input type="file" id="edit-img">
+
+            <button id="save-profile">Сақтау</button>
+            <button id="cancel-edit">Бас тарту</button>
+        </div>
+    </main>
+
+    <script src="profile.js"></script>
+</body>
+</html>
