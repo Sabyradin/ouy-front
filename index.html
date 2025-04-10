@@ -3,52 +3,399 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoMarket</title>
+    <title>EcoMarket - Экологиялық тауарлар</title>
+    <meta name="description" content="Қазақстандағы экологиялық таза өнімдердің жетекші дүкені">
     <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Шапка -->
     <header>
         <nav>
-            <div class="logo">🌿 OYU</div>
-           
-              
-            <ul>
+            <div class="logo">
+                <span class="leaf-icon">🔅</span>
+                <span class="logo-text">OYU</span>
+            </div>
+            <ul class="nav-links">
                 <li><a href="categories.html">Категории</a></li>
-                <li><a href="tovar.html">Товары</a></li>
-                <li><a href="dostavka.html">Доставка</a></li>
-                <li><a href="contact_us.html">Адреса и контакты</a></li>
-                <li><a href="https://www.instagram.com/oyu.eco?igsh=MWVmNjloNGk4YjdkYw%3D%3D&utm_source=qr">Instagram</a></li>
+                <li><a href="tovar.html">Тауарлар</a></li>
+                <li><a href="dostavka.html">Жеткізу</a></li>
+                <li><a href="contact_us.html">Байланыс</a></li>
             </ul>
-            <div class="icons">
-                🔍 <span>👤</span> 🛒
+            <div class="nav-icons">
+                <button id="search-btn" aria-label="Іздеу">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button id="profile-btn" aria-label="Профиль">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button id="cart-btn" aria-label="Себет" class="cart-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
             </div>
         </nav>
     </header>
 
     <!-- Негізгі мазмұн -->
     <main>
-        <section class="instagram">
-
-            <h2><a class="link_Instagram" href="https://www.instagram.com/oyu.eco?igsh=MWVmNjloNGk4YjdkYw%3D%3D&utm_source=qr">Следите за нами в #Instagram</a></h2>
-            
-            <div class="posts">
-                <img src="https://www.greenwashingindex.com/wp-content/uploads/2024/01/10-Essential-Eco-Friendly-Products-For-Green-Living.jpg" alt="EcoShop пост">
-                <img src="https://i.pinimg.com/474x/0e/2e/01/0e2e0174de78cd46da4c835884022356.jpg" alt="EcoShop пост">
-                <img src="https://i.pinimg.com/736x/aa/8a/ed/aa8aed0b65f2dee93a3049c8ffc1d6c9.jpg" alt="EcoShop пост">
+        <!-- Слайдер -->
+        <section class="hero-slider">
+            <div class="slider-container">
+                <div class="slide active">
+                    <img src="ДӘУ СУРЕТ" alt="Экологиялық өнімдер">
+                    <div class="slide-content">
+                        <h2>Экологиялық өмір салты</h2>
+                        <p>Табиғатқа зиянсыз өнімдерді қазір тапсырыңыз</p>
+                        <a href="#products" class="btn btn-primary">Тауарларды қарау</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="2ДӘУ СУРЕТ" alt="Қайта өңделетін материалдар">
+                    <div class="slide-content">
+                        <h2>Қайта өңделетін материалдар</h2>
+                        <p>Біздің барлық өнімдеріміз қоршаған ортаға қауіпсіз</p>
+                        <a href="#about" class="btn btn-outline">Толығырақ</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="ДӘУ СУРЕТ3" alt="Арнайы ұсыныстар">
+                    <div class="slide-content">
+                        <h2>Жаңа тауарлар</h2>
+                        <p>Жаңа коллекциялармен танысыңыз</p>
+                        <a href="categories.html" class="btn btn-primary">Қазір қарау</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-prev" aria-label="Алдыңғы слайд">&#10094;</button>
+                <div class="slider-dots"></div>
+                <button class="slider-next" aria-label="Келесі слайд">&#10095;</button>
             </div>
         </section>
 
-        <section class="categories">
-            <h2>Категории</h2>
-            <div class="category-items">
-                <div class="category">Эко-сөмкелер</div>
-                <div class="category">Бамбук щеткалары</div>
-                <div class="category">Эко-ыдыстар</div>
+        <!-- Арнайы ұсыныстар -->
+        <section id="special-offers" class="section">
+            <div class="container">
+                <h2 class="section-title">Арнайы ұсыныстар</h2>
+                <p class="section-subtitle">Осы аптаның ерекше ұсыныстары</p>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-badge">-20%</div>
+                        <div class="product-image">
+                            <img src="https://img.freepik.com/premium-vector/recycle-banner-design-hand-holding-eco-bag-save-planet-energy-concept_43880-473.jpg" alt="Эко-сөмке" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Эко-сөмке</h3>
+                            <div class="product-price">
+                                <span class="current-price">2,000 ₸</span>
+                                <span class="old-price">2,500 ₸</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add">Себетке қосу</button>
+                                <button class="btn btn-buy">Сатып алу</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-badge">-15%</div>
+                        <div class="product-image">
+                            <img src="https://i.pinimg.com/736x/49/67/58/496758d7604818bce5de1eade485b49f.jpg" alt="Бамбук щеткасы" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Бамбук щеткасы</h3>
+                            <div class="product-price">
+                                <span class="current-price">1,500 ₸</span>
+                                <span class="old-price">1,800 ₸</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add">Себетке қосу</button>
+                                <button class="btn btn-buy">Сатып алу</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-badge">-10%</div>
+                        <div class="product-image">
+                            <img src="https://i.pinimg.com/736x/fa/f6/a2/faf6a2eb0233b20451fc2ae6191ecaf4.jpg" alt="Эко бөтелке" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Эко бөтелке</h3>
+                            <div class="product-price">
+                                <span class="current-price">3,000 ₸</span>
+                                <span class="old-price">3,300 ₸</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add">Себетке қосу</button>
+                                <button class="btn btn-buy">Сатып алу</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Категориялар -->
+        <section id="categories" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Категориялар</h2>
+                <p class="section-subtitle">Таңдауыңызды жасаңыз</p>
+                <div class="categories-grid">
+                    <a href="category.html?cat=eco-bags" class="category-card">
+                        <div class="category-image">
+                            <img src="https://i.pinimg.com/736x/f6/bf/28/f6bf28fc5ca59538ad8d7698efa7d840.jpg" alt="Аксессуарлар" loading="lazy">
+                        </div>
+                        <h3>Аксессуарлар</h3>
+                    </a>
+                    
+                    <a href="category.html?cat=bamboo" class="category-card">
+                        <div class="category-image">
+                            <img src="https://i.pinimg.com/474x/e1/1b/2f/e11b2f2bc81ccdb3991bd453f11882d2.jpg" alt="Бамбук өнімдері" loading="lazy">
+                        </div>
+                        <h3>Бамбук өнімдері</h3>
+                    </a>
+                    
+                    <a href="category.html?cat=kitchen" class="category-card">
+                        <div class="category-image">
+                            <img src="https://i.pinimg.com/474x/ff/8f/47/ff8f471501d3a9dcaa31c2cfc7cc8574.jpg" alt="Эко ас үй" loading="lazy">
+                        </div>
+                        <h3>Эко ас үй</h3>
+                    </a>
+                    
+                    <a href="category.html?cat=personal-care" class="category-card">
+                        <div class="category-image">
+                            <img src="https://i.pinimg.com/474x/77/5d/62/775d623c3f0a4ba31e0854eb97341019.jpg" alt="Жеке гигиена" loading="lazy">
+                        </div>
+                        <h3>Жеке гигиена</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Үздік өнімдер -->
+        <section id="featured-products" class="section">
+            <div class="container">
+                <h2 class="section-title">Үздік өнімдер</h2>
+                <p class="section-subtitle">Ең көп таңдалған тауарлар</p>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://i.pinimg.com/474x/8a/c3/3a/8ac33aa3c487a2dba862f80e0c28f284.jpg" alt="Бамбук қасық жиынтығы" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Бамбук қасық жиынтығы</h3>
+                            <div class="product-price">
+                                <span class="current-price">4,500 ₸</span>
+                            </div>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="reviews">(24)</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add">Себетке қосу</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://i.pinimg.com/474x/f9/22/78/f9227819134099ad3d3e2d56a06b5abe.jpg" alt="Бамбук тіс щеткасы" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Бамбук тіс щеткасы</h3>
+                            <div class="product-price">
+                                <span class="current-price">1,500 ₸</span>
+                            </div>
+                            <div class="product-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="reviews">(18)</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add">Себетке қосу</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://i.pinimg.com/474x/88/37/43/883743b98ae8f0c544af04295539a9bd.jpg" alt="Стекло бөтелке" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Стекло бөтелке</h3>
+                            <div class="product-price">
+                                <span class="current-price">3,500 ₸</span>
+                            </div>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="reviews">(32)</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add">Себетке қосу</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-footer">
+                    <a href="categories.html" class="btn btn-outline">Барлық өнімдер</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Пікірлер -->
+        <section id="testimonials" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Клиенттердің пікірлері</h2>
+                <p class="section-subtitle">Біздің клиенттер не дейді</p>
+                <div class="testimonials-slider">
+                    <div class="testimonial active">
+                        <div class="testimonial-content">
+                            <p>"Мен EcoMarket-тен бірнеше рет тапсырыс бердім. Өнімдердің сапасы өте жоғары, ал қызмет көрсету жылдам және кәсіби. Әсіресе бамбук ас үй жиынтығын ұнатамын!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Айгерім" loading="lazy">
+                            </div>
+                            <div class="author-info">
+                                <h4>Айгерім</h4>
+                                <span>Нұр-Сұлтан</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Эко-сөмкелердің әртүрлілігі мен сапасы тамаша! Жеткізу уақыты көрсетілгеннен де ерте болды. Ұсынылатын барлық экологиялық өнімдерді пайдалануға кеңес беремін."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Әсет" loading="lazy">
+                            </div>
+                            <div class="author-info">
+                                <h4>Әсет</h4>
+                                <span>Алматы</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Бірінші рет EcoMarket-тен тапсырыс бердім және өте риза болдым. Тауарлардың бағасы мен сапасының арақатынасы тамаша. Енді тек осы дүкеннен сатып аламын."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Қарлығаш" loading="lazy">
+                            </div>
+                            <div class="author-info">
+                                <h4>Қарлығаш</h4>
+                                <span>Шымкент</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonials-controls">
+                    <button class="testimonial-prev" aria-label="Алдыңғы пікір">&#10094;</button>
+                    <div class="testimonial-dots"></div>
+                    <button class="testimonial-next" aria-label="Келесі пікір">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Видео презентация -->
+        <section id="video-presentation" class="section">
+            <div class="container">
+                <h2 class="section-title">Біз туралы</h2>
+                <p class="section-subtitle">EcoMarket қалай жұмыс істейді</p>
+                <div class="video-wrapper">
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Жаңалықтар -->
+        <section id="newsletter" class="section bg-dark">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Жаңалықтарға жазылыңыз</h2>
+                    <p>Арнайы ұсыныстар мен жаңа өнімдер туралы бірінші болып біліңіз</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Электрондық поштаңыз" required>
+                        <button type="submit" class="btn btn-primary">Жазылу</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Подвал -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Дүкен бөлімі -->
+                <div class="footer-section">
+                    <h3 class="footer-heading">Дүкен</h3>
+                    <ul class="footer-links">
+                        <li><a href="categories.html" class="footer-link">Категориялар</a></li>
+                        <li><a href="tovar.html" class="footer-link">Тауарлар</a></li>
+                        <li><a href="new-arrivals.html" class="footer-link">Жаңа өнімдер</a></li>
+                        <li><a href="special-offers.html" class="footer-link">Арнайы ұсыныстар</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Клиенттер бөлімі -->
+                <div class="footer-section">
+                    <h3 class="footer-heading">Клиенттер үшін</h3>
+                    <ul class="footer-links">
+                        <li><a href="delivery.html" class="footer-link">Жеткізу</a></li>
+                        <li><a href="payment.html" class="footer-link">Төлем</a></li>
+                        <li><a href="returns.html" class="footer-link">Қайтару</a></li>
+                        <li><a href="faq.html" class="footer-link">Жиі қойылатын сұрақтар</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Байланыс бөлімі -->
+                <div class="footer-section">
+                    <h3 class="footer-heading">Байланыс</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">Біз туралы</a></li>
+                        <li><a href="blog.html" class="footer-link">Блог</a></li>
+                        <li><a href="contact_us.html" class="footer-link">Байланыс</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Логотип және авторлық құқық -->
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🌿</span>
+                        <span class="logo-text">OYU Eco</span>
+                    </div>
+                    <p class="copyright">© 2023 OYU Eco. Барлық құқықтар қорғалған.</p>
+                    <div class="legal-links">
+                        <a href="privacy.html" class="legal-link">Құпиялылық саясаты</a>
+                        <span class="divider">|</span>
+                        <a href="terms.html" class="legal-link">Қызмет көрсету шарттары</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>
 </html>

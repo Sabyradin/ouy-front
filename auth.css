@@ -1,0 +1,409 @@
+/* Аутентификация стильдері - жаңартылған нұсқа */
+:root {
+    --primary-color: #2e7d32;
+    --primary-dark: #1b5e20;
+    --primary-light: #81c784;
+    --secondary-color: #ff9800;
+    --text-color: #333;
+    --text-light: #666;
+    --border-color: #e0e0e0;
+    --bg-light: #f9f9f9;
+    --white: #ffffff;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --error-color: #f44336;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-card {
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.auth-card h1 {
+    text-align: center;
+    color: var(--primary-dark);
+    margin-bottom: 32px;
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.auth-card h1 i {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.auth-links {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.auth-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.auth-links a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Форма элементтері - жаңартылған */
+.form-group {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 14px 20px 14px 48px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--white);
+    color: var(--text-color);
+}
+
+.input-with-icon input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+}
+
+.input-with-icon input::placeholder {
+    color: #aaa;
+    font-weight: 300;
+}
+
+/* Түймелер - жаңартылған */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    gap: 10px;
+    width: 100%;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.btn i {
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(46, 125, 50, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Хабарламалар - жаңартылған */
+.notification {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    padding: 16px 28px;
+    border-radius: 10px;
+    color: var(--white);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1000;
+    max-width: 90%;
+    text-align: center;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.notification.success {
+    background-color: var(--success-color);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+}
+
+.notification.error {
+    background-color: var(--error-color);
+    box-shadow: 0 6px 20px rgba(244, 67, 54, 0.3);
+}
+
+.notification i {
+    font-size: 1.3rem;
+}
+
+/* Қосымша жаңа элементтер */
+.password-toggle {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: var(--primary-color);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.divider::before {
+    margin-right: 16px;
+}
+
+.divider::after {
+    margin-left: 16px;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.social-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-btn.google { color: #DB4437; }
+.social-btn.facebook { color: #4267B2; }
+.social-btn.apple { color: #000; }
+
+/* Адаптивтік стильдер */
+@media (max-width: 576px) {
+    .auth-card {
+        padding: 30px 20px;
+        border-radius: 12px;
+    }
+    
+    .auth-card h1 {
+        font-size: 1.7rem;
+        margin-bottom: 28px;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+    }
+    
+    .input-with-icon input {
+        padding: 12px 16px 12px 44px;
+    }
+}
+
+/* Мәтін енгізу жолдарына арналған стильдер */
+.input-with-icon {
+    position: relative;
+    margin-bottom: 5px; /* Жолдар арасындағы аралықты азайту */
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    height: 48px; /* Жол биіктігін бекіту */
+    box-sizing: border-box; /* Padding биіктікке әсер етпеуі үшін */
+}
+
+.input-with-icon input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+    outline: none;
+}
+
+/* Парольді көрсету түймесі */
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: var(--primary-color);
+}
+
+/* Форма элементтерінің аралығы */
+.form-group {
+    margin-bottom: 20px; /* Жолдар арасындағы аралық */
+}
+
+/* Түймелер */
+.btn {
+    margin-top: 10px; /* Түйменің жоғарғы жағындағы аралық */
+}
+
+/* Сілтемелер */
+.auth-links {
+    margin-top: 20px;
+    line-height: 1.6; /* Жолдар арасындағы аралық */
+}
+
+.auth-links p {
+    margin: 8px 0; /* Әрбір параграф арасындағы аралық */
+}
+
+
+/* Пароль өрісі контейнері */
+.password-input-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Көз түймесінің жаңа стилі */
+.password-toggle-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #777;
+    font-size: 1rem;
+    padding: 8px;
+    transition: color 0.3s ease;
+    z-index: 2;
+}
+
+.password-toggle-btn:hover {
+    color: var(--primary-color);
+}
+
+/* Пароль көрсетілетін кездегі стиль */
+.password-toggle-btn .fa-eye-slash {
+    color: var(--primary-color);
+}
+
+/* Пароль ескертулері */
+.password-hints {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.password-hints p {
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.password-hints i {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+/* Input өрісінің стилін жаңарту */
+.input-with-icon input[type="password"],
+.input-with-icon input[type="text"] {
+    padding-right: 40px; /* Көз түймесі үшін орын қалдыру */
+    width: 100%;
+}

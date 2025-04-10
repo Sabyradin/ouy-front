@@ -3,38 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профиль | Qazaq EcoMarket</title>
+    <title>Профиль | OYU EcoShop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-    <header>
-        <h1>Профиль</h1>
-    </header>
 
-    <main class="profile-container">
-        <div class="profile-card">
-            <img id="profile-img" src="default-avatar.png" alt="Профиль суреті">
-            <h2 id="user-name">Аты-жөні</h2>
-            <p id="user-email">email@example.com</p>
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">
+                <span class="leaf-icon">🔅</span>
+                <span class="logo-text">OYU</span>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="categories.html">Категориялар</a></li>
+                <li><a href="products.html">Тауарлар</a></li>
+                <li><a href="delivery.html">Жеткізу</a></li>
+                <li><a href="contact_us.html">Байланыс</a></li>
+                <li><a href="blog.html">Блог</a></li>
+            </ul>
+        </nav>
+        <!-- header бөліміндегі профиль батырмасын өзгерту -->
+<div class="header-icons">
+    <a href="search.html" aria-label="Іздеу"><i class="fas fa-search"></i></a>
+    <a href="#" id="profileLink" aria-label="Профиль"><i class="fas fa-user"></i></a>
+    <a href="cart.html" aria-label="Себет"><i class="fas fa-shopping-cart"></i></a>
+</div>
+    </div>
+</header>
 
-            <button id="edit-profile">Өзгерту</button>
-            <button id="logout">Шығу</button>
+<main class="profile-main">
+    <div class="container">
+        <div class="profile-header">
+            <h1><i class="fas fa-user-circle"></i> Менің профилім</h1>
+            <div class="profile-actions">
+                <button class="btn btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Шығу
+                </button>
+            </div>
         </div>
 
-        <div class="edit-form" id="edit-form">
-            <h2>Профильді өзгерту</h2>
-            <label>Аты-жөні:</label>
-            <input type="text" id="edit-name">
-            <label>Электрондық пошта:</label>
-            <input type="email" id="edit-email">
-            <label>Профиль суреті:</label>
-            <input type="file" id="edit-img">
+        <div class="profile-grid">
+            <!-- Негізгі ақпарат -->
+            <section class="profile-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-id-card"></i> Жеке ақпарат</h2>
+                </div>
+                <div class="card-body">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="name">Толық аты-жөні</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="name" value="Айдана Бек" readonly>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Электрондық пошта</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" value="aidana.bek@mail.kz" readonly>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон нөмірі</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="phone" value="+7 (777) 123-45-67" readonly>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Мекен-жай</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <textarea id="address" readonly>Алматы қаласы, Назарбаев даңғылы, 10 үй</textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-edit" id="editBtn">
+                                <i class="fas fa-edit"></i> Өзгерту
+                            </button>
+                            <button type="button" class="btn btn-save" id="saveBtn" disabled>
+                                <i class="fas fa-save"></i> Сақтау
+                            </button>
+                            <button type="button" class="btn btn-cancel" id="cancelBtn" disabled>
+                                <i class="fas fa-times"></i> Бас тарту
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
 
-            <button id="save-profile">Сақтау</button>
-            <button id="cancel-edit">Бас тарту</button>
+            <!-- Қосымша бөлімдер -->
+            <aside class="profile-sidebar">
+                <!-- Тапсырыс тарихы -->
+                <div class="sidebar-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-history"></i> Соңғы тапсырыстар</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="order-item">
+                            <div class="order-info">
+                                <span class="order-id">#ORD-2023-0456</span>
+                                <span class="order-date">12.11.2023</span>
+                            </div>
+                            <div class="order-status delivered">Жеткізілді</div>
+                            <a href="#" class="order-details">Толығырақ</a>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-info">
+                                <span class="order-id">#ORD-2023-0389</span>
+                                <span class="order-date">28.10.2023</span>
+                            </div>
+                            <div class="order-status processing">Өңделуде</div>
+                            <a href="#" class="order-details">Толығырақ</a>
+                        </div>
+                        <a href="orders.html" class="btn btn-view-all">Барлығын қарау</a>
+                    </div>
+                </div>
+
+                <!-- Пайдаланушы статистикасы -->
+                <div class="sidebar-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-chart-line"></i> Менің статистикам</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="stats-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <div>
+                                <span class="stats-value">12</span>
+                                <span class="stats-label">Тапсырыс</span>
+                            </div>
+                        </div>
+                        <div class="stats-item">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <span class="stats-value">4.8</span>
+                                <span class="stats-label">Рейтинг</span>
+                            </div>
+                        </div>
+                        <div class="stats-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <span class="stats-value">2021</span>
+                                <span class="stats-label">Жылдан бері</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
         </div>
-    </main>
+    </div>
+</main>
 
-    <script src="profile.js"></script>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="leaf-icon">🌿</span>
+                <span class="logo-text">OYU Eco</span>
+            </div>
+            <div class="footer-links">
+                <a href="about.html">Біз туралы</a>
+                <a href="privacy.html">Құпиялылық саясаты</a>
+                <a href="terms.html">Қызмет көрсету шарттары</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2023 OYU EcoShop. Барлық құқықтар қорғалған.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="profile.js"></script>
 </body>
 </html>

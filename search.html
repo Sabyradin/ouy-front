@@ -3,42 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qazaq EcoMarket</title>
+    <title>Іздеу - Qazaq EcoMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="search.css">
 </head>
 <body>
-
-    <header>
-        <h1>OYU "Qazaq EcoMarket"</h1>
-        <input type="text" id="searchBar" placeholder="Өнімді іздеу...">
-
-        <div class="back-button">
-            <button onclick="history.back()" class="nav-button">Артқа</button>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">🔅 OYU</a>
+            </div>
+        
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="categories.html">Категориялар</a></li>
+                    <li><a href="products.html">Тауарлар</a></li>
+                    <li><a href="delivery.html">Жеткізу</a></li>
+                    <li><a href="contacts.html">Байланыс</a></li>
+                </ul>
+            </nav>
+        
+            <div class="user-actions">
+                <a href="search.html" class="search-icon"><i class="fas fa-search"></i></a>
+                <a href="profile.html" class="user-icon"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+            </div>
         </div>
-        
-        <div class="nav-links">
-            <a href="index.html">Басты бет</a>
-            <a href="cart.html">Себет</a>
-            <a href="profile.html">Профиль</a>
-        </div>
-        
-        
     </header>
 
-    <section class="product-list">
-        <div class="product" data-name="Эко-сөмке">
-            <img src="eco-bag.jpg" alt="Эко-сөмке">
-            <p>Эко-сөмке</p>
+    <main class="main-content">
+        <div class="search-section">
+            <h1 class="search-title">Тауарларды іздеу</h1>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Мысалы: Эко-сөмке, Бамбук щеткасы...">
+                <button id="searchBtn"><i class="fas fa-search"></i> Іздеу</button>
+            </div>
         </div>
-        <div class="product" data-name="Бамбук щеткасы">
-            <img src="bamboo-brush.jpg" alt="Бамбук щеткасы">
-            <p>Бамбук щеткасы</p>
+          
+        <div id="searchResults" class="product-list">
+            <!-- Мұнда іздеу нәтижелері пайда болады -->
         </div>
-        <div class="product" data-name="Эко-ыдыс">
-            <img src="eco-dish.jpg" alt="Эко-ыдыс">
-            <p>Эко-ыдыс</p>
-        </div>
-    </section>
+    </main>
 
     <script src="search.js"></script>
 </body>

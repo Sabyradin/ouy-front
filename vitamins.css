@@ -113,3 +113,11 @@ footer {
     background-color: #ffffff;
     margin-top: 30px;
 }
+
+.logo .leaf-icon,
+.logo .logo-text {
+  text-decoration: none;
+}
+
+
+

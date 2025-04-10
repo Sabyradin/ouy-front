@@ -3,81 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Товары - EcoShop</title>
+    <title>Тауарлар - OYU EcoShop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="tovar.css">
 </head>
 <body>
 
-<header>
-    <nav>
-        <div class="logo">🌿 EcoShop</div>
-        <ul>
-            <li><a href="#">Категории</a></li>
-            <li><a href="#">Товары</a></li>
-            <li><a href="#">Доставка</a></li>
-            <li><a href="#">Адреса и контакты</a></li>
-            <li><a href="#">Instagram</a></li>
-        </ul>
-        <div class="icons">🔍 👤 🛒</div>
-    </nav>
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">
+                <span class="leaf-icon">🔅</span>
+                <span class="logo-text">OYU</span>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="categories.html">Категориялар</a></li>
+                <li><a href="tovar.html" class="active">Тауарлар</a></li>
+                <li><a href="dostavka.html">Жеткізу</a></li>
+                <li><a href="contact_us.html">Байланыс</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="search.html" aria-label="Іздеу"><i class="fas fa-search"></i></a>
+            <a href="profile.html" aria-label="Профиль"><i class="fas fa-user"></i></a>
+            <a href="cart.html" aria-label="Себет"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </div>
 </header>
 
-<main>
-    <div class="sidebar">
-        <h3>Категории</h3>
-        <ul>
-            <li><a href="#">Аксессуары</a></li>
-            <li><a href="#">Бытовая химия</a></li>
-            <li><a href="#">Витамины</a></li>
-            <li><a href="#">Завтрак, каши</a></li>
-            <li><a href="#">Замороженные</a></li>
-            <li><a href="#">Зелень</a></li>
-            <li><a href="#">Консервы</a></li>
-            <li><a href="#">Косметика</a></li>
-            <li><a href="#">Масло</a></li>
-        </ul>
-    </div>
-
-    <div class="products">
-        <div class="product-card">
-            <img src="https://i.pinimg.com/474x/17/56/a1/1756a14d1862ea6e092085b5bb08b0b3.jpg">
-            <h4>Ocean Microfer</h4>
-            <p>6 750 тг</p>
-            <button>Добавить в корзину</button>
+<main class="main-content">
+    <div class="container">
+        <div class="sidebar">
+            <h3 class="sidebar-title"><i class="fas fa-list"></i> Категориялар</h3>
+            <ul class="category-list">
+                <li><a href="accessories.html"><i class="fas fa-tshirt"></i> Аксессуарлар</a></li>
+                <li><a href="bytovaya-himiya.html"><i class="fas fa-pump-soap"></i> Үй химиясы</a></li>
+                <li><a href="vitamins.html"><i class="fas fa-capsules"></i> Витаминдер</a></li>
+                <li><a href="zavtraki.html"><i class="fas fa-bread-slice"></i> Таңғы ас</a></li>
+                <li><a href="zamorozka.html"><i class="fas fa-snowflake"></i> Қатырмалар</a></li>
+                <li><a href="zelen.html"><i class="fas fa-leaf"></i> Көкөністер</a></li>
+                <li><a href="konservy.html"><i class="fas fa-jar"></i> Консервілер</a></li>
+                <li><a href="cosmetics.html"><i class="fas fa-spa"></i> Косметика</a></li>
+                <li><a href="maslo.html"><i class="fas fa-oil-can"></i> Майлар</a></li>
+            </ul>
         </div>
 
-        <div class="product-card">
-            <img src="https://i.pinimg.com/474x/32/7e/12/327e123f6662946d5480ba8ebb8fed8f.jpg">
-            <h4>Отофаг гель</h4>
-            <p>8 500 тг</p>
-            <button>Добавить в корзину</button>
-        </div>
+        <div class="products-container">
+            <div class="products-header">
+                <h2><i class="fas fa-store"></i> Барлық тауарлар</h2>
+                <div class="sort-options">
+                    <select id="sort-by">
+                        <option value="price-asc">Бағасы бойынша (арзаннан)</option>
+                        <option value="price-desc">Бағасы бойынша (қымбаттан)</option>
+                        <option value="name-asc">Аты бойынша (A-Я)</option>
+                        <option value="name-desc">Аты бойынша (Я-А)</option>
+                    </select>
+                </div>
+            </div>
 
-        <div class="product-card">
-            <img src="https://i.pinimg.com/474x/7e/0d/80/7e0d807fb77164e8bee920fa71b1ef32.jpg">
-            <h4>Трансфер фактор плюс</h4>
-            <p>34 000 тг</p>
-            <button>Добавить в корзину</button>
-        </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">Жаңа</div>
+                    <div class="product-image">
+                        <img src="https://i.pinimg.com/474x/17/56/a1/1756a14d1862ea6e092085b5bb08b0b3.jpg" alt="Ocean Microfer">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Ocean Microfer</h3>
+                        <p class="product-price">6 750 ₸</p>
+                        <button class="add-to-cart-btn">
+                            <i class="fas fa-cart-plus"></i> Себетке қосу
+                        </button>
+                    </div>
+                </div>
 
-        <div class="product-card">
-            <img src="https://i.pinimg.com/736x/2f/7c/f7/2f7cf772a8280fb656add8053ca6ff78.jpg">
-            <h4>Трансфер формула</h4>
-            <p>27 500 тг</p>
-            <button>Добавить в корзину</button>
-        </div>
+                <div class="product-card">
+                    <div class="product-badge">Таңдаулы</div>
+                    <div class="product-image">
+                        <img src="https://i.pinimg.com/474x/32/7e/12/327e123f6662946d5480ba8ebb8fed8f.jpg" alt="Отофаг гель">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Отофаг гель</h3>
+                        <p class="product-price">8 500 ₸</p>
+                        <button class="add-to-cart-btn">
+                            <i class="fas fa-cart-plus"></i> Себетке қосу
+                        </button>
+                    </div>
+                </div>
 
-        <div class="product-card">
-            <img src="https://i.pinimg.com/474x/4d/08/67/4d08672eb51d6af3103442862d5abf8c.jpg">
-            <h4>Трансфер классик</h4>
-            <p>26 600 тг</p>
-            <button>Добавить в корзину</button>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.pinimg.com/474x/7e/0d/80/7e0d807fb77164e8bee920fa71b1ef32.jpg" alt="Трансфер фактор плюс">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Трансфер фактор плюс</h3>
+                        <p class="product-price">34 000 ₸</p>
+                        <button class="add-to-cart-btn">
+                            <i class="fas fa-cart-plus"></i> Себетке қосу
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.pinimg.com/736x/2f/7c/f7/2f7cf772a8280fb656add8053ca6ff78.jpg" alt="Трансфер формула">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Трансфер формула</h3>
+                        <p class="product-price">27 500 ₸</p>
+                        <button class="add-to-cart-btn">
+                            <i class="fas fa-cart-plus"></i> Себетке қосу
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge">-15%</div>
+                    <div class="product-image">
+                        <img src="https://i.pinimg.com/474x/4d/08/67/4d08672eb51d6af3103442862d5abf8c.jpg" alt="Трансфер классик">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Трансфер классик</h3>
+                        <p class="product-price">
+                            <span class="old-price">31 300 ₸</span>
+                            26 600 ₸
+                        </p>
+                        <button class="add-to-cart-btn">
+                            <i class="fas fa-cart-plus"></i> Себетке қосу
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <span>...</span>
+                <button class="page-btn">10</button>
+                <button class="next-btn">Келесі <i class="fas fa-chevron-right"></i></button>
+            </div>
         </div>
     </div>
 </main>
 
-<footer>
-    <p>© 2025 EcoShop. Барлық құқықтар қорғалған.</p>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="leaf-icon">🌿</span>
+                <span class="logo-text">OYU Eco</span>
+            </div>
+            <div class="footer-links">
+                <a href="about.html">Біз туралы</a>
+                <a href="privacy.html">Құпиялылық саясаты</a>
+                <a href="terms.html">Қызмет көрсету шарттары</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 OYU EcoShop. Барлық құқықтар қорғалған.</p>
+        </div>
+    </div>
 </footer>
 
 <script src="tovar.js"></script>

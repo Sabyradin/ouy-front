@@ -3,43 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Адрес и контакты - OYU EcoShop</title>
+    <title>Байланыс - OYU EcoShop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="contact_us.css">
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="logo">🌿 OYU</a>
-        <nav>
-            <ul>
-                <li><a href="categories.html">Категориялар</a></li>
-                <li><a href="products.html">Тауарлар</a></li>
-                <li><a href="delivery.html">Доставка</a></li>
-                <li><a href="contacts.html">Адрес и контакты</a></li>
-                <li><a href="#">Instagram</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="leaf-icon">🔅</span>
+                    <span class="logo-text">OYU </span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="categories.html">Категориялар</a></li>
+                    <li><a href="products.html">Тауарлар</a></li>
+                    <li><a href="delivery.html">Жеткізу</a></li>
+                    <li><a href="contacts.html" class="active">Байланыс</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="contacts-section">
-        <h2>Адрес и контакты</h2>
-        <div class="contact-info">
-            <p><strong>Мекенжай:</strong> Алматы, Қазақстан, Сәтбаев көшесі, 22</p>
-            <p><strong>Телефон:</strong> +7 (707) 123-45-67</p>
-            <p><strong>Email:</strong> support@oyu.kz</p>
-            <p><strong>Жұмыс уақыты:</strong> Дүйсенбі - Жұма: 09:00 - 18:00</p>
-        </div>
-        
-        <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3186.485995536195!2d76.92714411531648!3d43.238896879136166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x388369d235c32979%3A0xaba8c1eb4f95745d!2z0J7RgdC60LjQuSDQkNC70YzQvdGL0YHRjNC60LgsIDEyMywg0JDQvdGC0L7QstCwLCDQkdC40YjQsNC90YHQuiwg0KHQtdC70YzQvdCw!5e0!3m2!1sen!2skz!4v1617188939879!5m2!1sen!2skz"
-                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
-        </div>
-    </section>
+    <main class="main-content">
+        <div class="container">
+            <section class="contacts-section">
+                <h1 class="section-title"><i class="fas fa-map-marker-alt"></i> Байланыс ақпараты</h1>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Мекенжай</h3>
+                        <p>Алматы қаласы, Сәтбаев көшесі, 22</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Телефон</h3>
+                        <p><a href="tel:+77071234567">+7 (707) 123-45-67</a></p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Электрондық пошта</h3>
+                        <p><a href="mailto:support@oyu.kz">support@oyu.kz</a></p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Жұмыс уақыты</h3>
+                        <p>Дүйсенбі - Жұма<br>09:00 - 18:00</p>
+                    </div>
+                </div>
 
-    <footer>
-        <p>© 2025 Qazaq EcoMarket. Барлық құқықтар қорғалған.</p>
+                <div class="social-section">
+                    <h2 class="social-title"><i class="fas fa-share-alt"></i> Әлеуметтік желілерде</h2>
+                    <div class="social-buttons">
+                        <a href="https://www.instagram.com/oyu.eco" target="_blank" class="social-button instagram">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="#" class="social-button facebook">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </a>
+                        <a href="#" class="social-button whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="map-section">
+                    <h2 class="map-title"><i class="fas fa-map"></i> Біздің орналасқан жеріміз</h2>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3186.485995536195!2d76.92714411531648!3d43.238896879136166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x388369d235c32979%3A0xaba8c1eb4f95745d!2z0J7RgdC60LjQuSDQkNC70YzQvdGL0YHRjNC60LgsIDEyMywg0JDQvdGC0L7QstCwLCDQkdC40YjQsNC90YHQuiwg0KHQtdC70YzQvdCw!5e0!3m2!1sen!2skz!4v1617188939879!5m2!1sen!2skz"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+<!-- <div class="user-location-section">
+    <h2 class="section-title"><i class="fas fa-location-arrow"></i> Менің орналасқан жерім</h2>
+    <script src="https://maps.googleapis.com/maps/api/js?key=СІЗДІҢ_API_KEY&callback=initMap&libraries=geometry" async defer></script>
+    <div id="distance-info"></div>
+    <div id="user-location-map" class="map-container"></div>
+    <div class="location-note">
+        <p><i class="fas fa-info-circle"></i> Жергілікті орналасуыңызды көрсету үшін браузерге рұқсат беруіңіз керек</p>
+    </div>
+</div> -->
+
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="leaf-icon">🌿</span>
+                    <span class="logo-text">OYU Eco</span>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">Біз туралы</a>
+                    <a href="privacy.html">Құпиялылық саясаты</a>
+                    <a href="terms.html">Қызмет көрсету шарттары</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 OYU EcoShop. Барлық құқықтар қорғалған.</p>
+            </div>
+        </div>
     </footer>
 
     <script src="contact_us.js"></script>

@@ -3,52 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Доставка | EcoShop</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Жеткізу | OYU EcoShop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="dostavka.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo">🌿 EcoShop</a>
-
-            
-            <ul>
-                <li><a href="categories.html">Категориялар</a></li>
-                <li><a href="products.html">Тауарлар</a></li>
-                <li><a href="dostavka.html" class="active">Доставка</a></li>
-                <li><a href="contacts.html">Адрес және байланыс</a></li>
-                <li><a href="profile.html">Профиль</a></li>
-                <li><a href="cart.html">🛒 Себет</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="leaf-icon">🔅</span>
+                    <span class="logo-text">OYU</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="categories.html">Категориялар</a></li>
+                    <li><a href="tovar.html">Тауарлар</a></li>
+                    <li><a href="dostavka.html" class="active">Жеткізу</a></li>
+                    <li><a href="contact_us.html">Байланыс</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i></a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="container">
-        <section class="delivery">
-            <h1>🚚 Жеткізу шарттары</h1>
-            <div class="delivery-info">
-                <h2>Жеткізу уақыты</h2>
-                <p>
-                    Тапсырыстар күн сайын сағат <strong>10:00</strong>-ден <strong>20:00</strong>-ге дейін жеткізіледі.
-                </p>
+    <main class="main-content">
+        <div class="container">
+            <section class="delivery-section">
+                <div class="delivery-header">
+                    <h1><i class="fas fa-truck"></i> Жеткізу шарттары</h1>
+                    <p class="delivery-subtitle">Тапсырысыңызды қалай және қашан алатыныңызды біліңіз</p>
+                </div>
 
-                <h2>Жеткізу ақысы</h2>
-                <ul>
-                    <li><strong>Алматы</strong>: 700 тг (тапсырыс 10 000 тг-ден жоғары болса, жеткізу тегін)</li>
-                    <li><strong>Астана</strong>: 1000 тг (тапсырыс 15 000 тг-ден жоғары болса, жеткізу тегін)</li>
-                    <li><strong>Қазақстан бойынша басқа қалаларға</strong>: "Қазпочта" арқылы, бағасы салмаққа байланысты есептеледі.</li>
-                </ul>
+                <div class="delivery-grid">
+                    <div class="delivery-card">
+                        <div class="delivery-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h2>Жеткізу уақыты</h2>
+                        <div class="delivery-content">
+                            <p>Тапсырыстар күн сайын сағат <strong>10:00</strong>-ден <strong>20:00</strong>-ге дейін жеткізіледі.</p>
+                            <p>Тапсырыстарды қабылдау - дүйсенбіден жұмаға дейін.</p>
+                        </div>
+                    </div>
 
-                <h2>Тапсырысты қабылдау</h2>
-                <p>
-                    Тапсырыс жеткізілгенде, өнімдерді тексеріп, тауардың сапасы мен мөлшерін растаңыз. Кез келген сұрақтарыңыз болса, бізге хабарласыңыз: <strong>+7 (777) 123-45-67</strong>
-                </p>
-            </div>
-        </section>
+                    <div class="delivery-card highlight">
+                        <div class="delivery-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h2>Жеткізу ақысы</h2>
+                        <div class="delivery-content">
+                            <ul class="delivery-list">
+                                <li>
+                                    <i class="fas fa-map-marker-alt city-icon"></i>
+                                    <strong>Алматы</strong>: 700 ₸ 
+                                    <span class="free-delivery">(10 000 ₸ және одан жоғары тапсырыстарда тегін)</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-map-marker-alt city-icon"></i>
+                                    <strong>Астана</strong>: 1 000 ₸ 
+                                    <span class="free-delivery">(15 000 ₸ және одан жоғары тапсырыстарда тегін)</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-truck-moving region-icon"></i>
+                                    <strong>Қазақстан бойынша</strong>: "Қазпочта" арқылы, бағасы салмаққа байланысты
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="delivery-card">
+                        <div class="delivery-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h2>Тапсырысты қабылдау</h2>
+                        <div class="delivery-content">
+                            <p>Тапсырыс жеткізілгенде, өнімдерді тексеріп, тауардың сапасы мен мөлшерін растаңыз.</p>
+                            <p>Кез келген сұрақтарыңыз болса, бізге хабарласыңыз:</p>
+                            <a href="tel:+77771234567" class="contact-link">
+                                <i class="fas fa-phone"></i> +7 (777) 123-45-67
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="delivery-card map-card">
+                        <div class="delivery-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h2>Жеткізу аймағы</h2>
+                        <div class="delivery-content">
+                            <div class="map-container">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.785714403716!2d76.91203741571684!3d43.23556697913771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x388369d235c32979%3A0xaba8c1eb4f95745d!2z0J7RgdC60LjQuSDQkNC70YzQvdGL0YHRjNC60LgsIDEyMywg0JDQvdGC0L7QstCwLCDQkdC40YjQsNC90YHQuiwg0KHQtdC70YzQvdCw!5e0!3m2!1sen!2skz!4v1620000000000!5m2!1sen!2skz" 
+                                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
-    <footer>
-        <p>© 2025 EcoShop. Барлық құқықтар қорғалған.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="leaf-icon">🌿</span>
+                    <span class="logo-text">OYU Eco</span>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">Біз туралы</a>
+                    <a href="privacy.html">Құпиялылық саясаты</a>
+                    <a href="terms.html">Қызмет көрсету шарттары</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 OYU EcoShop. Барлық құқықтар қорғалған.</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="dostavka.js"></script>
 </body>
 </html>
