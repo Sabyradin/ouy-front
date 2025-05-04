@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // MongoDB қосылуы үшін API URL
-    const API_URL = 'http://localhost:3000/api'; // Өз серверіңізге сәйкес өзгертіңіз
+    const API_URL = 'http://localhost:3000/api'; 
 
     // Кіру формасы
     const loginForm = document.getElementById('loginForm');
@@ -170,3 +170,4 @@ document.addEventListener("DOMContentLoaded", () => {
         regConfirmPassword.addEventListener('input', validatePasswords);
     }
 });
+

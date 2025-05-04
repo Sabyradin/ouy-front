@@ -727,3 +727,23 @@ nav {
         align-items: flex-start;
     }
 }
+
+
+
+.category-heading {
+    font-size: 28px;
+    margin-top: 40px;
+    color: #007f5f; /* Жасыл көк реңкті қазақ стиліне сәйкес */
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .category-card h4 {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+  }
+  
