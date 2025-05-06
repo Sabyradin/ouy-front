@@ -295,4 +295,47 @@ body {
 /* Адаптивтік дизайн */
 @media (max-width: 768px) {
     .header .container {
-        flex-direction:
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav li {
+        margin: 10px 0;
+    }
+
+    .main-nav a {
+        display: block;
+        width: 100%;
+    }
+
+    .header-icons {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .main-content {
+        padding: 20px 0;
+    }
+
+    .delivery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Төлем жасау | OYU EcoShop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+  <div class="payment-container">
+    <header class="payment-header">
+      <div class="logo">
+        <i class="fas fa-leaf"></i>
+        <h1>OYU EcoShop</h1>
+      </div>
+      <h2>Төлем беті</h2>
+      <div class="progress-steps">
+        <div class="step completed">
+          <span class="step-number">1</span>
+          <span class="step-text">Тауарды таңдау</span>
+        </div>
+        <div class="step active">
+          <span class="step-number">2</span>
+          <span class="step-text">Төлеу</span>
+        </div>
+        <div class="step">
+          <span class="step-number">3</span>
+          <span class="step-text">Растау</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="payment-content">
+      <section class="product-details" id="product-info">
+        <!-- JS арқылы толтырылады -->
+      </section>
+
+      <section class="payment-methods">
+        <h3><i class="fas fa-wallet"></i> Төлем әдісін таңдаңыз</h3>
+        
+        <div class="payment-option active">
+          <div class="option-header">
+            <i class="fab fa-cc-mastercard"></i>
+            <h4>Kaspi Bank</h4>
+          </div>
+          <div class="option-content">
+            <div class="qr-section">
+              <p><strong>QR код арқылы төлеңіз:</strong></p>
+              <img src="https://f.nodacdn.net/408120" alt="Kaspi QR" class="qr-image">
+              <p class="qr-hint">Kaspi банкіндегі QR сканерін пайдаланыңыз</p>
+            </div>
+            <div class="transfer-section">
+              <p><strong>Немесе телефон нөміріне аударыңыз:</strong></p>
+              <div class="phone-number">
+                <span>+7 777 123 45 67</span>
+                <button class="copy-btn" onclick="copyToClipboard('+77771234567')">
+                  <i class="far fa-copy"></i> Көшіру
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-option">
+          <div class="option-header">
+            <i class="fas fa-mobile-alt"></i>
+            <h4>Қолма-қол ақша</h4>
+          </div>
+          <div class="option-content">
+            <p>Курьерге қолма-қол ақшаны тапсырыс берген кезде төлеңіз.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="confirmation-section">
+        <h3><i class="fas fa-check-circle"></i> Төлемді растау</h3>
+        <div class="confirmation-box">
+          <p>Төлем жасаған соң, төлем чекін төмендегіге жіберіңіз:</p>
+          <div class="contact-methods">
+            <div class="contact-method whatsapp">
+              <i class="fab fa-whatsapp"></i>
+              <span>WhatsApp: +7 777 123 45 67</span>
+              <a href="https://wa.me/77771234567" class="contact-btn" target="_blank">
+                <i class="fas fa-paper-plane"></i> Жіберу
+              </a>
+            </div>
+            <div class="contact-method telegram">
+              <i class="fab fa-telegram"></i>
+              <span>Telegram: @oyuecoshop</span>
+              <a href="https://t.me/oyuecoshop" class="contact-btn" target="_blank">
+                <i class="fas fa-paper-plane"></i> Жіберу
+              </a>
+            </div>
+          </div>
+          <div class="order-note">
+            <i class="fas fa-info-circle"></i>
+            <p>Чекті жіберген кезде тапсырыс нөмірін көрсетуді ұмытпаңыз.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="payment-footer">
+      <button class="back-btn" onclick="window.history.back()">
+        <i class="fas fa-arrow-left"></i> Артқа
+      </button>
+      <div class="footer-contacts">
+        <a href="tel:+77771234567"><i class="fas fa-phone"></i> Қоңырау шалу</a>
+        <a href="mailto:info@oyuecoshop.kz"><i class="fas fa-envelope"></i> Электрондық пошта</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Загрузка данных о продукте
+    document.addEventListener('DOMContentLoaded', function() {
+      const product = JSON.parse(localStorage.getItem('selectedProduct')) || {
+        name: "Тауар аты анықталмады",
+        price: "0 ₸",
+        image: "https://via.placeholder.com/150"
+      };
+      
+      const infoDiv = document.getElementById('product-info');
+      
+      infoDiv.innerHTML = `
+        <div class="product-card">
+          <div class="product-image">
+            <img src="${product.image || 'https://via.placeholder.com/150'}" alt="${product.name}">
+          </div>
+          <div class="product-info">
+            <h3>Сатып алынатын өнім</h3>
+            <p class="product-name"><strong>${product.name}</strong></p>
+            <p class="product-price">${product.price}</p>
+            <div class="product-meta">
+              <span><i class="fas fa-box"></i> 1 бірлік</span>
+              <span><i class="fas fa-shield-alt"></i> Қамтамасыз етілген</span>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Активация выбора способа оплаты
+      const paymentOptions = document.querySelectorAll('.payment-option');
+      paymentOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          paymentOptions.forEach(opt => opt.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+    });
+    
+    // Функция копирования текста
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Нөмір көшірілді: ' + text);
+      });
+    }
+  </script>
+</body>
+</html>

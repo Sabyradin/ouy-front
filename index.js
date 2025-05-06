@@ -152,3 +152,77 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 }); 
+
+
+
+document.querySelectorAll('.btn-buy').forEach(button => {
+    button.addEventListener('click', () => {
+        const productCard = button.closest('.product-card');
+        const productName = productCard.querySelector('.product-title').textContent;
+
+        showPurchaseModal(productName);
+    });
+});
+
+function showPurchaseModal(productName) {
+    const overlay = document.createElement('div');
+    overlay.className = 'buy-overlay';
+    overlay.innerHTML = `
+        <div class="buy-message">
+            <p>${productName} сатып алынуда...</p>
+            <span class="loader"></span>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    setTimeout(() => {
+        overlay.innerHTML = `
+            <div class="buy-message success">
+                <p>✅ ${productName} сәтті сатып алынды!</p>
+                <button onclick="document.body.removeChild(document.querySelector('.buy-overlay'))" class="btn-close">Жабу</button>
+            </div>
+        `;
+    }, 2000);
+}
+
+
+document.querySelectorAll('.btn-add').forEach(button => {
+    button.addEventListener('click', () => {
+        const productCard = button.closest('.product-card');
+        const productName = productCard.querySelector('.product-title').textContent;
+
+        showCartToast(`${productName} себетке қосылды ✅`);
+    });
+});
+
+function showCartToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'cart-toast';
+    toast.innerText = message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => toast.classList.add('show'), 10);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => document.body.removeChild(toast), 300);
+    }, 2500);
+}
+
+
+
+document.querySelectorAll('.btn-buy').forEach(button => {
+    button.addEventListener('click', () => {
+        const productCard = button.closest('.product-card');
+        const productName = productCard.querySelector('.product-title').textContent;
+        const productPrice = productCard.querySelector('.current-price').textContent;
+
+        // Бұл мәліметтерді төлем бетіне жіберу (localStorage арқылы)
+        localStorage.setItem('selectedProduct', JSON.stringify({
+            name: productName,
+            price: productPrice
+        }));
+
+        window.location.href = 'payment.html';
+    });
+});

@@ -1,51 +1,91 @@
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
     renderCart();
-    
-    document.getElementById('clear').addEventListener('click', clearCart);
-    document.getElementById('buy').addEventListener('click', buyItems);
+
+    const clearBtn = document.getElementById('clear');
+    const buyBtn = document.getElementById('buy');
+
+    if (clearBtn) clearBtn.addEventListener('click', clearCart);
+    if (buyBtn) buyBtn.addEventListener('click', buyItems);
+
+    // Қазір сатып алу батырмасы
+    document.querySelectorAll('.buy-now').forEach(button => {
+        button.addEventListener('click', function () {
+            const productCard = this.closest('.product-card');
+            const product = {
+                id: productCard.dataset.id,
+                name: productCard.dataset.name,
+                price: Number(productCard.dataset.price),
+                quantity: 1
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existing = cart.find(item => item.id === product.id);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href = 'payment.html';
+        });
+    });
+
+    // Жоғарғы панельдегі иконкалар
+    document.querySelectorAll('.icon-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const action = this.id.replace('-btn', '');
+            if(action === 'search') window.location.href = 'search.html';
+            else if(action === 'profile') window.location.href = 'profile.html';
+            else if(action === 'cart') window.location.href = 'cart.html';
+        });
+    });
 });
 
-// Себеттегі тауарлар санын жаңарту
 function updateCartCount() {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-    document.getElementById('cart-count').textContent = totalCount;
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const badge = document.querySelector('.cart-badge');
+    if (badge) badge.textContent = total;
+    const count = document.getElementById('cart-count');
+    if (count) count.textContent = total;
 }
 
-// Себетті рендерлеу
 function renderCart() {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartItemsContainer = document.getElementById('cart-items');
-    const subtotalPriceContainer = document.getElementById('subtotal-price');
-    const deliveryPriceContainer = document.getElementById('delivery-price');
-    const totalPriceContainer = document.getElementById('total-price');
-    
-    cartItemsContainer.innerHTML = '';
-    
-    if (cartItems.length === 0) {
-        cartItemsContainer.innerHTML = `
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const container = document.getElementById('cart-items');
+    const subtotalBox = document.getElementById('subtotal-price');
+    const deliveryBox = document.getElementById('delivery-price');
+    const totalBox = document.getElementById('total-price');
+
+    if (!container || !subtotalBox || !deliveryBox || !totalBox) return;
+
+    container.innerHTML = '';
+
+    if (cart.length === 0) {
+        container.innerHTML = `
             <div class="empty-cart">
                 <i class="fas fa-shopping-cart"></i>
                 <p>Себетіңіз бос</p>
             </div>
         `;
-        subtotalPriceContainer.textContent = '0 ₸';
-        deliveryPriceContainer.textContent = '0 ₸';
-        totalPriceContainer.textContent = '0 ₸';
+        subtotalBox.textContent = '0 ₸';
+        deliveryBox.textContent = '0 ₸';
+        totalBox.textContent = '0 ₸';
         return;
     }
-    
+
     let subtotal = 0;
-    
-    cartItems.forEach((item, index) => {
+
+    cart.forEach((item, index) => {
         subtotal += item.price * item.quantity;
-        
-        const itemElement = document.createElement('div');
-        itemElement.className = 'cart-item';
-        itemElement.innerHTML = `
-            <img src="${item.image || 'https://via.placeholder.com/100?text=No+Image'}" 
-                 alt="${item.name}" class="cart-item-img">
+
+        const itemEl = document.createElement('div');
+        itemEl.className = 'cart-item';
+        itemEl.innerHTML = `
+            <img src="${item.image || 'https://via.placeholder.com/100?text=No+Image'}" alt="${item.name}" class="cart-item-img">
             <div class="cart-item-info">
                 <h3 class="cart-item-name">${item.name}</h3>
                 <p class="cart-item-price">${item.price} ₸</p>
@@ -61,75 +101,52 @@ function renderCart() {
                 </button>
             </div>
         `;
-        cartItemsContainer.appendChild(itemElement);
+        container.appendChild(itemEl);
     });
-    
-    // Жеткізу құнын есептеу (мысал ретінде 1000 теңге)
-    const deliveryPrice = 1000;
-    const totalPrice = subtotal + deliveryPrice;
-    
-    subtotalPriceContainer.textContent = `${subtotal} ₸`;
-    deliveryPriceContainer.textContent = `${deliveryPrice} ₸`;
-    totalPriceContainer.textContent = `${totalPrice} ₸`;
-    
-    // Минус және плюс батырмаларына іс-әрекеттерді қосу
-    document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
-        btn.addEventListener('click', decreaseQuantity);
-    });
-    
-    document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
-        btn.addEventListener('click', increaseQuantity);
-    });
-    
-    // Өшіру батырмаларына іс-әрекеттерді қосу
-    document.querySelectorAll('.remove-item').forEach(btn => {
-        btn.addEventListener('click', removeItem);
-    });
+
+    const delivery = 1000;
+    subtotalBox.textContent = `${subtotal} ₸`;
+    deliveryBox.textContent = `${delivery} ₸`;
+    totalBox.textContent = `${subtotal + delivery} ₸`;
+
+    document.querySelectorAll('.quantity-btn.minus').forEach(btn => btn.addEventListener('click', decreaseQuantity));
+    document.querySelectorAll('.quantity-btn.plus').forEach(btn => btn.addEventListener('click', increaseQuantity));
+    document.querySelectorAll('.remove-item').forEach(btn => btn.addEventListener('click', removeItem));
 }
 
-// Санын азайту
 function decreaseQuantity(e) {
     const index = e.target.dataset.index;
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    if (cartItems[index].quantity > 1) {
-        cartItems[index].quantity--;
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart[index].quantity > 1) {
+        cart[index].quantity--;
     } else {
-        cartItems.splice(index, 1);
+        cart.splice(index, 1);
     }
-    
-    localStorage.setItem('cart', JSON.stringify(cartItems));
+    localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
     renderCart();
 }
 
-// Санын көбейту
 function increaseQuantity(e) {
     const index = e.target.dataset.index;
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    cartItems[index].quantity++;
-    
-    localStorage.setItem('cart', JSON.stringify(cartItems));
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart[index].quantity++;
+    localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
     renderCart();
 }
 
-// Тауарды өшіру
 function removeItem(e) {
     if (confirm('Бұл тауарды себеттен шынымен алып тастағыңыз келе ме?')) {
         const index = e.target.closest('.remove-item').dataset.index;
-        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        cartItems.splice(index, 1);
-        
-        localStorage.setItem('cart', JSON.stringify(cartItems));
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
         updateCartCount();
         renderCart();
     }
 }
 
-// Себетті тазалау
 function clearCart() {
     if (confirm('Себетті толығымен тазалағыңыз келе ме?')) {
         localStorage.removeItem('cart');
@@ -138,39 +155,11 @@ function clearCart() {
     }
 }
 
-// Сатып алу
 function buyItems() {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    if (cartItems.length === 0) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
         alert('Себетіңіз бос. Алдымен тауар қосыңыз!');
         return;
     }
-    
-    // Мұнда төлемді өңдеу логикасын қосуға болады
-    alert('Тапсырысыңыз қабылданды! Рақмет сатып алу үшін.');
-    
-    // Төлемнен кейін себетті тазалау
-    localStorage.removeItem('cart');
-    updateCartCount();
-    renderCart();
-}document.querySelectorAll('.icon-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const action = this.id.replace('-btn', '');
-        
-        if(action === 'search') {
-            window.location.href = 'search.html';
-        } 
-        else if(action === 'profile') {
-            window.location.href = 'profile.html';
-        }
-        else if(action === 'cart') {
-            window.location.href = 'cart.html';
-        }
-    });
-});
-
-// Себеттегі заттар санын жаңарту (мысал ретінде)
-function updateCartCount(count) {
-    document.querySelector('.cart-badge').textContent = count;
+    window.location.href = 'payment.html';
 }
